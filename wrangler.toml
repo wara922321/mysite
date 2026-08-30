@@ -1,0 +1,8 @@
+name = "bulletin-board"
+main = "src/worker.js"
+compatibility_date = "2026-08-30"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "bulletin-board-db"
+database_id = "c6ec0b07-55ca-4dbd-ba24-51061c5c2cdd"
