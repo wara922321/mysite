@@ -15,7 +15,15 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+      - name: Check secrets are configured
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN secret is not set (or empty). Add it under Settings > Secrets and variables > Actions > Secrets."
+            exit 1
+          fi
+          echo "CLOUDFLARE_API_TOKEN is set (length: ${#CLOUDFLARE_API_TOKEN})"
       - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

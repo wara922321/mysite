@@ -19,10 +19,9 @@ npm run dev
 
 このリポジトリには GitHub Actions (`.github/workflows/deploy.yml`) が用意されており、`main` ブランチにpushすると自動でCloudflare Workersにデプロイされます。
 
-有効にするには、GitHubリポジトリの Settings → Secrets and variables → Actions で以下の2つを登録してください。
+有効にするには、GitHubリポジトリの Settings → Secrets and variables → Actions の **Secrets** タブで以下を登録してください（Variablesタブではありません）。
 
 - `CLOUDFLARE_API_TOKEN` — Cloudflareダッシュボードで発行するAPIトークン（Workers編集権限が必要）
-- `CLOUDFLARE_ACCOUNT_ID` — CloudflareダッシュボードのアカウントID
 
 登録後、`main` へのpush（またはActionsタブから手動実行）でデプロイされます。
 
